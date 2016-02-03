@@ -12,7 +12,7 @@ public class User extends BaseEntity{
     private String password;
     private Date lastLogin;
 
-    @OneToOne(cascade = { CascadeType.REMOVE, CascadeType.PERSIST }, fetch = FetchType.LAZY)
+    @OneToOne(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
     @JoinColumn(name = "profileId")
     private UserProfile profile;
 

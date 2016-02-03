@@ -2,9 +2,6 @@ package biz.redlotus.hrms.api;
 
 import biz.redlotus.hrms.enumeration.AjaxResultEnum;
 import com.google.common.collect.Iterables;
-import com.google.common.collect.Iterators;
-
-import java.util.List;
 
 /**
  * Created by blogw on 2016/02/02.
@@ -16,16 +13,18 @@ public class JsonResult {
     private Iterable<Object> list;
     private Object data;
 
+    public JsonResult(){
+        setResult(AjaxResultEnum.SUCCESS.getLabel());
+    }
+
     public static JsonResult createJson(Object o){
         JsonResult json=new JsonResult();
-        json.setResult(AjaxResultEnum.SUCCESS.getLabel());
         json.setData(o);
         return json;
     }
 
     public static JsonResult createListJson(Iterable<Object>list){
         JsonResult json=new JsonResult();
-        json.setResult(AjaxResultEnum.SUCCESS.getLabel());
         json.setList(list);
         json.setTotal(Iterables.size(list));
         return json;
